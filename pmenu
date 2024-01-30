@@ -1,0 +1,87 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use lib '/opt/PMenu';
+
+use Carp;
+use Getopt::Long;
+
+use PMenu;
+
+# used for debugging
+use Data::Dumper;
+
+$| = 1;
+
+$SIG{__WARN__} = sub {
+	my ($sig) = @_;
+
+    PMenu::cleanup ();
+
+	print "WARN :$sig:\n";
+	print Carp->longmess . "\n";
+
+	exit 0;
+};
+
+$SIG{__DIE__} = sub {
+	my ($sig) = @_;
+
+    PMenu::cleanup ();
+
+	print "DIE :$sig:\n";
+	print Carp->longmess . "\n";
+
+	exit 0;
+};
+
+$SIG{TERM} = sub {
+	my ($sig) = @_;
+
+    PMenu::cleanup ();
+	exit 0;
+};
+
+$SIG{INT} = sub {
+	my ($sig) = @_;
+
+    PMenu::cleanup ();
+	exit 0;
+};
+
+sub usage
+{
+	my ($msg) = @_;
+
+	print "Error: $msg\n";
+	print "usage: pmenu\n";
+	print "   looks for a file in the current directory called pmenu.json, and displays the menu, otherwise dies\n";
+
+	exit 0;
+}
+
+# JSON structure
+# an array of menus
+
+
+sub script
+{
+    usage ("pmenu.json does not exist") if (!-r "pmenu.json");
+
+    my $menu = PMenu::init ();
+
+    usage ("A menu named main, must exist in pmenu.json") if (!exists ($menu->{main}));
+
+    PMenu::init ();
+    PMenu::menu ($menu, "main");
+
+    PMenu::cleanup ();
+
+	return 1;
+}
+
+script (@ARGV) unless caller ();
+
+
