@@ -5,8 +5,8 @@ Command line (ncurses) Menu system for simple menu actions
 git clone this repo where you want to work on it.
 Then
 
-`sudo ln -s /home/[username]/PMenu /opt/PMenu`
-`sudo ln -s /opt/PMenu/pmenu /usr/bin/pmenu`
+* `sudo ln -s /home/[username]/PMenu /opt/PMenu`
+* `sudo ln -s /opt/PMenu/pmenu /usr/bin/pmenu`
 
 In essence you want it located in `/opt/PMenu`
 
