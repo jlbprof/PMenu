@@ -1,0 +1,82 @@
+{
+    "main": [
+        {
+            "display": "Choice 1",
+            "response": {
+                "type": "BASH",
+                "commands": [
+                    "date",
+                    "echo 'choice 1'",
+                    "sleep 10"
+                ]
+            }
+        },
+        {
+            "display": "Choice 2 X",
+            "response": {
+                "type": "MENU",
+                "menu": "CHOICE2"
+            }
+        },
+        {
+            "display": "Choice 3 EXEC",
+            "response": {
+                "type": "EXEC",
+                "command": "/bin/date"
+            }
+        },
+        {
+            "display": "Back",
+            "response": {
+                "type": "BACK"
+            }
+        },
+        {
+            "display": "Exit",
+            "response": {
+                "type": "EXIT"
+            }
+        }
+    ],
+    "CHOICE2": [
+        {
+            "display": "Temp Menu",
+            "response": {
+                "type": "TEMPMENU",
+                "commands": [
+                    "date",
+                    "./gen_tempmenu.pl",
+                    "sleep 2"
+                ]
+            }
+        },
+        {
+            "display": "Y Choice 2",
+            "response": {
+                "type": "BASH",
+                "commands": [
+                    "date",
+                    "echo 'choice 2'",
+                    "sleep 10"
+                ]
+            }
+        },
+        {
+            "display": "X Choice 3",
+            "response": {
+                "type": "BASH",
+                "commands": [
+                    "date",
+                    "echo 'choice 3'",
+                    "sleep 10"
+                ]
+            }
+        },
+        {
+            "display": "Back",
+            "response": {
+                "type": "BACK"
+            }
+        }
+    ]
+}
