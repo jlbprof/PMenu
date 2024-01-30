@@ -11,7 +11,7 @@ Then
 * Add ncurses and development library
 * Add gcc and other necessary tools for building programs
 * Install package `cpanm` a package manager for Perl
-* Install Curses, `Path::Tiny`, `File::chdir` with `cpanm`
+* Install Curses, `Path::Tiny`, `File::chdir`, `Data::HexDump` and `Cpanel::JSON::XS` with `cpanm`
 
 In essence you want it located in `/opt/PMenu`
 
